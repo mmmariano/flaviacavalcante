@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flávia Cavalcante | Master Tattoo & Micro Artist</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper.js (Sliders) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --red: #9b0000;
+            --black: #000000;
+            --grey: #121212;
+        }
+
+        body { 
+            background-color: var(--black); 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .oswald { font-family: 'Oswald', sans-serif; }
+
+        /* Video Background Styling */
+        .video-docker video {
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            position: absolute;
+            width: 100%; height: 100%;
+        }
+
+        .video-overlay {
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        /* Swiper Custom */
+        .swiper-pagination-bullet { background: var(--red) !important; }
+        .swiper-button-next, .swiper-button-prev { color: var(--red) !important; }
+
+        /* Custom Hover Effects */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .btn-premium::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .btn-premium:hover::before { left: 100%; }
+
+        /* Grayscale Grid */
+        .work-item img {
+            filter: grayscale(100%) contrast(1.2);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .work-item:hover img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (GLASSMORPHISM) -->
+    <nav class="fixed w-full z-[100] transition-all duration-500 py-6 px-10 flex justify-between items-center" id="nav">
+        <div class="text-2xl font-bold uppercase tracking-tighter oswald italic">
+            FLÁVIA <span class="text-[#9b0000]">CAVALCANTE</span>
+        </div>
+        <div class="hidden lg:flex space-x-12 text-[11px] font-bold uppercase tracking-[0.4em]">
+            <a href="#sobre" class="hover:text-red-600 transition">A Artista</a>
+            <a href="#servicos" class="hover:text-red-600 transition">Trabalhos</a>
+            <a href="#mvv" class="hover:text-red-600 transition">Missão</a>
+            <a href="#contato" class="text-red-600">Agendar</a>
+        </div>
+        <a href="https://wa.me/5511912602751" class="btn-premium bg-[#9b0000] px-8 py-3 text-[10px] font-black uppercase tracking-widest">
+            Orçamento
+        </a>
+    </nav>
+
+    <!-- HERO SECTION COM VÍDEO -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden video-docker">
+        <video autoplay muted loop playsinline poster="fallback.jpg">
+            <source src="videos/backgroundvideo.mp4" type="video/mp4">
+            <!-- Fallback para teste caso o vídeo local não esteja na pasta -->
+            <source src="https://player.vimeo.com/external/494163966.sd.mp4?s=34f9a0d33e88404a3976378e90e79c656d028989&profile_id=164" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 video-overlay z-10"></div>
+        
+        <div class="relative z-20 text-center px-4" data-aos="zoom-out" data-aos-duration="2000">
+            <h2 class="text-red-600 text-xs md:text-sm uppercase tracking-[1em] font-bold mb-6">Tattoo & Micropigmentation</h2>
+            <h1 class="text-6xl md:text-[140px] font-black uppercase italic tracking-tighter leading-[0.8] mb-12 oswald">
+                A ARTE DA <br> <span class="text-transparent" style="-webkit-text-stroke: 2px #fff;">PERFEIÇÃO.</span>
+            </h1>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#servicos" class="bg-white text-black px-12 py-5 font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition-all duration-500">
+                    Ver Portfólio
+                </a>
+                <a href="https://wa.me/5511912602751" class="border border-white/30 text-white px-12 py-5 font-black uppercase text-xs tracking-widest hover:border-red-600 transition-all">
+                    Agendar Sessão
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE (ANIMATED STATS) -->
+    <section id="sobre" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div class="relative" data-aos="fade-right">
+                <img src="perfil.png" class="grayscale">
+                <div class="absolute -bottom-10 -left-10 bg-zinc-900 border-l-8 border-red-700 p-12 hidden md:block">
+                    <span class="text-6xl font-black oswald">+14</span>
+                    <p class="text-[10px] uppercase tracking-widest font-bold text-zinc-500">Anos transformando peles</p>
+                </div>
+            </div>
+            <div class="space-y-8" data-aos="fade-left">
+                <h3 class="text-red-600 font-bold uppercase text-xs tracking-widest">Master Artist</h3>
+                <h2 class="text-5xl md:text-7xl font-black uppercase oswald italic">Flávia <br> Cavalcante</h2>
+                <p class="text-zinc-400 text-lg leading-relaxed font-light">
+                    Sua jornada na estética de luxo combina a precisão master de <span class="text-white font-bold">9 anos em Micropigmentação</span> com a expressão visceral de <span class="text-white font-bold">5 anos na Tatuagem.</span>
+                </p>
+                <div class="grid grid-cols-2 gap-8 border-t border-zinc-800 pt-12">
+                    <div>
+                        <p class="text-xs text-zinc-500 uppercase tracking-widest mb-2">Micropigmentação</p>
+                        <p class="text-3xl font-bold oswald uppercase">Master 9Y</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-zinc-500 uppercase tracking-widest mb-2">Tatuagem</p>
+                        <p class="text-3xl font-bold oswald uppercase">Artist 5Y</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- SLIDER DE SERVIÇOS (SWIPER) - VERSÃO PREMIUM CORRIGIDA -->
+    <section id="servicos" class="py-32 bg-zinc-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-16">
+            <span class="text-red-600 font-bold uppercase tracking-[0.5em] text-xs" data-aos="fade-up">Portfólio</span>
+            <h2 class="text-5xl md:text-8xl font-black uppercase italic oswald mt-2" data-aos="fade-up">Especialidades.</h2>
+        </div>
+        
+        <div class="swiper workSwiper px-4">
+            <div class="swiper-wrapper">
+                
+                <!-- Slide 1: TATUAGEM -->
+                <div class="swiper-slide work-item relative h-[650px] overflow-hidden group">
+                    <!-- Troque 'tattoo.jpg' pelo seu arquivo local -->
+                    <img src="https://images.pexels.com/photos/2183131/pexels-photo-2183131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Tatuagem" 
+                         onerror="this.src='https://placehold.co/600x800/000000/FFFFFF?text=Tatuagem'"
+                         class="w-full h-full object-cover">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-all duration-700"></div>
+                    
+                    <div class="absolute bottom-10 left-10 transform group-hover:-translate-y-4 transition-all duration-500">
+                        <div class="w-10 h-1 bg-red-600 mb-4"></div>
+                        <h3 class="text-4xl font-black uppercase italic oswald tracking-tighter">Tatuagem</h3>
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-400 mt-2">Artes exclusivas & Fine Line</p>
+                        <a href="https://wa.me/5511912602751" class="inline-block mt-6 px-6 py-2 border border-white/20 text-[10px] font-bold uppercase hover:bg-white hover:text-black transition">Orçamento</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2: MICROPIGMENTAÇÃO -->
+                <div class="swiper-slide work-item relative h-[650px] overflow-hidden group">
+                    <!-- Troque 'micro.jpg' pelo seu arquivo local -->
+                    <img src="https://images.pexels.com/photos/5240637/pexels-photo-5240637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Micropigmentação" 
+                         onerror="this.src='https://placehold.co/600x800/000000/FFFFFF?text=Micropigmentação'"
+                         class="w-full h-full object-cover">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-all duration-700"></div>
+                    
+                    <div class="absolute bottom-10 left-10 transform group-hover:-translate-y-4 transition-all duration-500">
+                        <div class="w-10 h-1 bg-red-600 mb-4"></div>
+                        <h3 class="text-4xl font-black uppercase italic oswald tracking-tighter">Micropigmentação</h3>
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-400 mt-2">9 Anos de Maestria Facial</p>
+                        <a href="https://wa.me/5511912602751" class="inline-block mt-6 px-6 py-2 border border-white/20 text-[10px] font-bold uppercase hover:bg-white hover:text-black transition">Agendar</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3: CAMUFLAGEM -->
+                <div class="swiper-slide work-item relative h-[650px] overflow-hidden group">
+                    <!-- Troque 'camuflagem.jpg' pelo seu arquivo local -->
+                    <img src="https://images.pexels.com/photos/3985338/pexels-photo-3985338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Camuflagem" 
+                         onerror="this.src='https://placehold.co/600x800/000000/FFFFFF?text=Camuflagem'"
+                         class="w-full h-full object-cover">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-40 transition-all duration-700"></div>
+                    
+                    <div class="absolute bottom-10 left-10 transform group-hover:-translate-y-4 transition-all duration-500">
+                        <div class="w-10 h-1 bg-red-600 mb-4"></div>
+                        <h3 class="text-4xl font-black uppercase italic oswald tracking-tighter">Camuflagem</h3>
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-400 mt-2">Estética Reparadora de Estrias</p>
+                        <a href="https://wa.me/5511912602751" class="inline-block mt-6 px-6 py-2 border border-white/20 text-[10px] font-bold uppercase hover:bg-white hover:text-black transition">Saber Mais</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Navegação e Paginação -->
+            <div class="swiper-pagination !bottom-0"></div>
+            <div class="swiper-button-next !text-red-600"></div>
+            <div class="swiper-button-prev !text-red-600"></div>
+        </div>
+    </section>
+
+    <!-- MISSÃO E VISÃO (CARDS) -->
+    <section id="mvv" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="p-12 bg-zinc-900/50 border-t-2 border-red-700" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="oswald uppercase text-2xl mb-6 italic">Missão</h4>
+                <p class="text-zinc-500 text-sm leading-relaxed font-light italic">Fundir a estética master com a arte atemporal, proporcionando resultados que elevam a alma através da pele.</p>
+            </div>
+            <div class="p-12 bg-zinc-900/50 border-t-2 border-red-700" data-aos="fade-up" data-aos-delay="200">
+                <h4 class="oswald uppercase text-2xl mb-6 italic">Visão</h4>
+                <p class="text-zinc-500 text-sm leading-relaxed font-light italic">Ser o estúdio referência em São Paulo para quem busca exclusividade e precisão cirúrgica no traço.</p>
+            </div>
+            <div class="p-12 bg-zinc-900/50 border-t-2 border-red-700" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="oswald uppercase text-2xl mb-6 italic">Valores</h4>
+                <p class="text-zinc-500 text-sm leading-relaxed font-light italic">Biossegurança de elite, atendimento personalizado, ética inegociável e evolução técnica constante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTATO -->
+    <footer id="contato" class="bg-black py-32 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <h2 class="text-5xl md:text-[120px] font-black uppercase oswald italic text-center mb-24 tracking-tighter" data-aos="zoom-in">
+                LET'S GET <span class="text-red-700">INKED.</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 w-full">
+                <div class="space-y-12">
+                    <div class="group">
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-600 mb-4">Envie um e-mail</p>
+                        <a href="mailto:flaviacavalcante1010@gmail.com" class="text-xl md:text-3xl font-bold hover:text-red-600 transition">flaviacavalcante1010@gmail.com</a>
+                    </div>
+                    <div class="group">
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-600 mb-4">Siga a Artista</p>
+                        <a href="https://instagram.com/flaviacavalcante.fc" target="_blank" class="text-xl md:text-3xl font-bold hover:text-red-600 transition">@flaviacavalcante.fc</a>
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-900 p-12">
+                    <h4 class="text-xs font-black tracking-widest uppercase mb-8 text-red-600">Horários de Atendimento</h4>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
+                        <li class="flex justify-between border-b border-white/5 pb-4"><span>Segunda a Sexta</span> <span>08:00 — 21:00</span></li>
+                        <li class="flex justify-between border-b border-white/5 pb-4"><span>Sábado</span> <span>08:00 — 15:00</span></li>
+                        <li class="pt-4 text-zinc-500 font-normal">Somente com agendamento prévio.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-32 text-center text-[10px] uppercase tracking-[0.5em] text-zinc-800">
+                © 2026 Flávia Cavalcante Studio. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animate on Scroll Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Inicializar Animações
+        AOS.init({ once: true });
+const swiper = new Swiper('.workSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: { delay: 5000 },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+    }
+});
+    </script>
+</body>
+</html>
